@@ -1,0 +1,605 @@
+/* CONFIGURAÇÕES GERAIS */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Times New Roman", Times, serif;
+    background-image: url("imagens/fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000000;
+}
+
+/* Bloqueia a rolagem durante a animação inicial */
+body.bloqueado {
+    overflow: hidden;
+}
+
+/* CABEÇALHO */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* TÍTULOS DAS SEÇÕES */
+h2 {
+    text-align: center;
+    font-family: "Edwardian Script ITC", "Brush Script MT", cursive;
+    font-weight: normal;
+}
+
+/* TÍTULO PRINCIPAL */
+.titulo-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-family: "Edwardian Script ITC", "Brush Script MT", cursive;
+    font-weight: normal;
+}
+
+.titulo-principal img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+/* SEÇÕES */
+section {
+    width: 85%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 20px;
+}
+
+/* ANIMAÇÃO DA BOLA */
+.bola-abertura {
+    position: fixed;
+    top: 50%;
+    left: -200px;
+    width: 180px;
+    height: 180px;
+    z-index: 1000;
+    pointer-events: none;
+    transform: translateY(-50%);
+    animation: bolaPassando 3s linear forwards;
+}
+
+.bola-abertura img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    animation: girarBola 3s linear forwards;
+}
+
+@keyframes bolaPassando {
+    0% {
+        left: -200px;
+    }
+
+    100% {
+        left: calc(100% + 200px);
+    }
+}
+
+@keyframes girarBola {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(1440deg);
+    }
+}
+
+/* APRESENTAÇÃO PESSOAL */
+.apresentacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.area-foto {
+    width: 260px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.foto-principal {
+    width: 200px;
+    height: 230px;
+    object-fit: cover;
+    border: 10px solid white;
+    transform: rotate(-5deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    opacity: 0;
+    animation: aparecerFoto 1s ease-out 2.8s forwards;
+}
+
+@keyframes aparecerFoto {
+    from {
+        opacity: 0;
+        transform: rotate(-12deg) scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(-5deg) scale(1);
+    }
+}
+
+.texto {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.7;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.texto h2 {
+    font-size: 30px;
+}
+
+td {
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* CARTÕES DE INTERESSES */
+.cards-gostos {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card-gosto {
+    width: 250px;
+    max-width: 100%;
+    padding: 25px;
+    text-align: center;
+    background-color: rgba(245, 200, 240, 0.7);
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+
+.card-gosto:hover {
+    transform: translateY(-8px);
+}
+
+.card-gosto img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px 15px 8px 8px;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.card-gosto h3 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.card-gosto p {
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* LIVROS */
+.fotos-livros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.fotos-livros img {
+    width: 160px;
+    height: 220px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s;
+}
+
+.fotos-livros img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* FILMES */
+.fotos-filmes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.fotos-filmes img {
+    width: 160px;
+    height: 220px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s;
+}
+
+.fotos-filmes img:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* PESSOAS ESPECIAIS */
+.fotos-pessoas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.fotos-pessoas div {
+    text-align: center;
+}
+
+.fotos-pessoas img {
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s;
+}
+
+.fotos-pessoas img:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* SITES FAVORITOS */
+.sites ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sites img {
+    width: 80px;
+    height: 80px;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.sites img:hover {
+    transform: scale(1.15);
+}
+
+/* TABELA */
+.tabela {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.tabela h2 {
+    margin-bottom: 25px;
+}
+
+.tabela table {
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    background-color: white;
+}
+
+.tabela th {
+    padding: 16px;
+    background-color: #f3c6d8;
+    font-family: "Edwardian Script ITC", "Brush Script MT", cursive;
+    font-size: 20px;
+}
+
+.tabela td {
+    padding: 15px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 16px;
+}
+
+.tabela tr:nth-child(even) {
+    background-color: #fff5f8;
+}
+
+.tabela tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela tr:hover {
+    background-color: #ffe8f0;
+    transition: 0.3s;
+}
+
+/* MOMENTO IMPORTANTE */
+.momento {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.momento blockquote {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-family: "Edwardian Script ITC", "Brush Script MT", cursive;
+    font-size: 28px;
+    line-height: 1.5;
+}
+
+/* FOTO DO MOMENTO */
+.foto-doenca {
+    width: 90%;
+    max-width: 1000px;
+    height: 300px;
+    margin: 0 auto 40px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.foto-doenca img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+}
+
+/* TEXTO DO MOMENTO */
+.texto-momento {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.texto-momento h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: "Edwardian Script ITC", "Brush Script MT", cursive;
+}
+
+.texto-momento p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* TABLETS E TELAS MENORES */
+@media (max-width: 768px) {
+    header {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    section {
+        width: 92%;
+        padding: 24px;
+    }
+
+    .apresentacao {
+        gap: 30px;
+    }
+
+    .area-foto {
+        width: 220px;
+        flex-shrink: 1;
+    }
+
+    .texto {
+        overflow-wrap: anywhere;
+    }
+
+    .cards-gostos {
+        gap: 18px;
+    }
+
+    .card-gosto {
+        width: 220px;
+    }
+
+    .tabela table {
+        width: 100%;
+    }
+
+    .momento {
+        padding: 45px 20px;
+    }
+
+    .momento blockquote {
+        font-size: 25px;
+    }
+
+    .foto-doenca {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+/* CELULARES */
+@media (max-width: 480px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    header {
+        padding: 25px 12px;
+    }
+
+    .titulo-principal {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .titulo-principal img {
+        width: 38px;
+        height: 38px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    section {
+        width: 94%;
+        margin: 22px auto;
+        padding: 18px 14px;
+        border-radius: 15px;
+    }
+
+    .apresentacao {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .area-foto {
+        width: 100%;
+        height: 260px;
+    }
+
+    .foto-principal {
+        max-width: 100%;
+    }
+
+    .texto h2 {
+        font-size: 26px;
+    }
+
+    .cards-gostos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-gosto {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .fotos-livros,
+    .fotos-filmes,
+    .fotos-pessoas {
+        gap: 18px;
+    }
+
+    .fotos-livros img,
+    .fotos-filmes img {
+        width: 125px;
+        height: 180px;
+    }
+
+    .fotos-pessoas img {
+        width: 145px;
+        height: 145px;
+    }
+
+    .sites ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .sites img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .tabela {
+        padding: 25px 10px;
+    }
+
+    .tabela table {
+        width: 100%;
+        table-layout: fixed;
+        overflow-wrap: anywhere;
+    }
+
+    .tabela th,
+    .tabela td {
+        padding: 10px 6px;
+        font-size: 14px;
+    }
+
+    .momento {
+        padding: 35px 14px;
+    }
+
+    .momento blockquote {
+        font-size: 23px;
+    }
+
+    .foto-doenca {
+        height: 200px;
+    }
+
+    .texto-momento {
+        overflow-wrap: anywhere;
+    }
+
+    footer {
+        padding: 20px 12px;
+    }
+}
+
+/* RESPEITA A PREFERÊNCIA POR MENOS ANIMAÇÕES */
+@media (prefers-reduced-motion: reduce) {
+    .card-gosto,
+    .fotos-livros img,
+    .fotos-filmes img,
+    .fotos-pessoas img,
+    .sites img {
+        transition: none;
+    }
+}
